@@ -1,5 +1,6 @@
 ﻿namespace BidCalculationTool_API.Models
 {
+    // More a DTO than a Model itself, kept together with models for simplicity 
     public class VehicleFeeResult
     {
         public decimal BasicBuyerFee { get; set; }

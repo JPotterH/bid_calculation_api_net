@@ -14,6 +14,7 @@ namespace BidCalculationTool_API.Repositories
             _context = inMemmoryContext;
         }
 
+        // Seeding of the in memory DB, for other contexts could be done directly on the context
         public void InitInMemoryDb()
         {
             var vehicles = new List<Vehicle>
@@ -74,6 +75,7 @@ namespace BidCalculationTool_API.Repositories
         {
             #pragma warning disable CS8603 // Possible null reference return.
             return await _context.Vehicles.AsNoTracking().SingleOrDefaultAsync(vehicle => vehicle.Id == id);
+            // Possible null return is left to be handled by the controller to help provide the user with more accurate response
             #pragma warning restore CS8603 // Possible null reference return.
         }
     }

@@ -39,6 +39,7 @@ app.UseHttpLogging();
 
 using (var serviceScope = app.Services.CreateScope())
 {
+    // DI for the data context initialization
     var scopedServices = serviceScope.ServiceProvider;
 
     var _vehicleRepository = scopedServices.GetRequiredService<IVehicleRepository>();

@@ -14,6 +14,7 @@ namespace BidCalculationTool_API.Repositories
             _context = inMemmoryContext;
         }
 
+        // Seeding of the in memory DB, for other contexts could be done directly on the context
         public void InitInMemoryDb()
         {
             var vehicleTypes = Enum.GetValues(typeof(VehicleTypeEnum))
