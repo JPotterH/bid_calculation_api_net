@@ -32,6 +32,14 @@ builder.Services.AddScoped<IVehicleService, VehicleService>();
 builder.Services.AddScoped<IVehicleFeeService, VehicleFeeService>();
 builder.Services.AddScoped<IVehicleTypeService, VehicleTypeService>();
 
+//services cors
+builder.Services.AddCors(p => p.AddPolicy("dev_cors",
+    builder =>
+    {
+        // FE origins coul pass to external configuration instead of hardcoded at this point
+        builder.WithOrigins("http://localhost:5173", "https://localhost:5173").AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader();
+    }));
+
 
 var app = builder.Build();
 
@@ -52,6 +60,8 @@ using (var serviceScope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("dev_cors");
+
     app.UseDeveloperExceptionPage();
 
     app.UseSwagger();
