@@ -8,5 +8,6 @@
         public decimal AssociationFee { get; set; }
         public decimal StorageFee { get; set; }
         public decimal TotalFee { get; set; }
+        public decimal TotalBid { get; set; }
     }
 }

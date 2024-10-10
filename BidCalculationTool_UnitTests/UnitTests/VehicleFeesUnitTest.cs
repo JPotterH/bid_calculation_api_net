@@ -44,7 +44,8 @@ namespace BidCalculationTool_UnitTests.UnitTests
                 SellerSpecialFee = 10,
                 AssociationFee = 5,
                 StorageFee = 100,
-                TotalFee = 165
+                TotalFee = 165,
+                TotalBid = 665
             };
 
             _mockVehicleFeeService.Setup(service => service.GetFeesInfo(vehicleBasePrice, vehicleType)).ReturnsAsync(expectedFeeResult);
