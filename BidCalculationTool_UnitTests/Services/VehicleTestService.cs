@@ -32,9 +32,9 @@ namespace BidCalculationTool_UnitTests.Services
                 new ()
                 {
                     Id = 3,
-                    BasePrice = 57,
+                    BasePrice = 57000.45m,
                     Description = "Popeye's toy vehicle",
-                    Type = (int)VehicleTypeEnum.Common
+                    Type = (int)VehicleTypeEnum.Luxury
                 }
             };
         }
@@ -46,7 +46,7 @@ namespace BidCalculationTool_UnitTests.Services
 
         async Task<Vehicle> IVehicleService.GetById(int id)
         {
-            var vehicle = _vehicleList.Where(v => v.Id == id).FirstOrDefault();
+            var vehicle = _vehicleList.Where(v => v.Id == id).FirstOrDefault()!;
             return await Task.FromResult(vehicle);
         }
     }

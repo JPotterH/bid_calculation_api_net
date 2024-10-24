@@ -17,6 +17,7 @@ namespace BidCalculationTool_UnitTests.UnitTests
             _controller = new VehicleController(_vehicleService);
         }
 
+        // Warming up
         [Fact]
         public async void Test_GetVehiclesInfo_ReturnsOkResult()
         {
