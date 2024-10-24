@@ -33,10 +33,11 @@ namespace BidCalculationTool_API.Services
             decimal associationFee = CalculateAssociationFee(bidOffer);
 
             decimal totalFees = basicBuyerFee + sellerSpecialFee + associationFee + FIXED_STORAGE_FEE;
-            decimal totalBidPlusFees = totalFees;
+            decimal totalBidPlusFees = bidOffer + totalFees;
 
             // Vehicle fees DTO guaranties data integrity in communication with clients and can be easily updated
             var vehicleFees = new VehicleFeeResult() {
+                Bid = bidOffer,
                 BasicBuyerFee = basicBuyerFee,
                 SellerSpecialFee = sellerSpecialFee,
                 AssociationFee = associationFee,

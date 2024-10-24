@@ -40,6 +40,7 @@ namespace BidCalculationTool_UnitTests.UnitTests
             int vehicleType = 1;
             var expectedFeeResult = new VehicleFeeResult
             {
+                Bid = vehicleBasePrice,
                 BasicBuyerFee = 50,
                 SellerSpecialFee = 10,
                 AssociationFee = 5,
@@ -57,11 +58,13 @@ namespace BidCalculationTool_UnitTests.UnitTests
             var foundResult = Assert.IsType<OkObjectResult>(result.Result);
             var vehicleFees = Assert.IsAssignableFrom<VehicleFeeResult>(foundResult.Value);
 
+            Assert.Equal(expectedFeeResult.Bid, vehicleFees.Bid);
             Assert.Equal(expectedFeeResult.BasicBuyerFee, vehicleFees.BasicBuyerFee);
             Assert.Equal(expectedFeeResult.SellerSpecialFee, vehicleFees.SellerSpecialFee);
             Assert.Equal(expectedFeeResult.AssociationFee, vehicleFees.AssociationFee);
             Assert.Equal(expectedFeeResult.StorageFee, vehicleFees.StorageFee);
             Assert.Equal(expectedFeeResult.TotalFee, vehicleFees.TotalFee);
+            Assert.Equal(expectedFeeResult.TotalBid, vehicleFees.TotalBid);
         }
 
         [Fact]
