@@ -68,10 +68,8 @@ namespace BidCalculationTool_UnitTests.UnitTests
                 TotalBid = 665
             };
 
-            _stubVehicleFeeService.Setup(service => service.GetFeesInfo(vehicleBasePrice, vehicleType)).ReturnsAsync(expectedFeeResult);
-
             // Act
-            var result = await _stubController.GetVehicleBidDetails(vehicleBasePrice, vehicleType);
+            var result = await _controller.GetVehicleBidDetails(vehicleBasePrice, vehicleType);
 
             // Assert
             var foundResult = Assert.IsType<OkObjectResult>(result.Result);
@@ -103,10 +101,8 @@ namespace BidCalculationTool_UnitTests.UnitTests
                 TotalBid = 2167
             };
 
-            _stubVehicleFeeService.Setup(service => service.GetFeesInfo(vehicleBasePrice, vehicleType)).ReturnsAsync(expectedFeeResult);
-
             // Act
-            var result = await _stubController.GetVehicleBidDetails(vehicleBasePrice, vehicleType);
+            var result = await _controller.GetVehicleBidDetails(vehicleBasePrice, vehicleType);
 
             // Assert
             var foundResult = Assert.IsType<OkObjectResult>(result.Result);
